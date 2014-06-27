@@ -931,7 +931,7 @@
             // **Progress Bar**
             // Return an element representing a progress of position within
             // the entire chart
-            createProgressBar: function (days, cls, desc, label, dataObj) {
+            createProgressBar: function (days, cls, desc, label, dataObj, customBackgroundColor) {
                 var cellWidth = tools.getCellSize();
                 var barMarg = tools.getProgressBarMargin() || 0;
                 var bar = $('<div class="bar"><div class="fn-label">' + label + '</div></div>')
@@ -940,6 +940,10 @@
                             width: ((cellWidth * days) - barMarg) + 2
                         })
                         .data("dataObj", dataObj);
+                if(customBackgroundColor)
+                	bar.css({
+                		backgroundColor: customBackgroundColor
+                	});
 
                 if (desc) {
                     bar
@@ -1026,7 +1030,8 @@
                                                 day.customClass ? day.customClass : "",
                                                 day.desc ? day.desc : "",
                                                 day.label ? day.label : "",
-                                                day.dataObj ? day.dataObj : null
+                                                day.dataObj ? day.dataObj : null,
+                                                day.customBackgroundColor
                                             );
 
                                     // find row
@@ -1069,7 +1074,8 @@
                                              day.customClass ? day.customClass : "",
                                              day.desc ? day.desc : "",
                                              day.label ? day.label : "",
-                                            day.dataObj ? day.dataObj : null
+                                             day.dataObj ? day.dataObj : null,
+                                             day.customBackgroundColor
                                         );
 
                                     // find row
@@ -1109,7 +1115,8 @@
                                         day.customClass ? day.customClass : "",
                                         day.desc ? day.desc : "",
                                         day.label ? day.label : "",
-                                        day.dataObj ? day.dataObj : null
+                                        day.dataObj ? day.dataObj : null,
+                                        day.customBackgroundColor
                                     );
 
                                     // find row
@@ -1135,7 +1142,8 @@
                                                 day.customClass ? day.customClass : "",
                                                 day.desc ? day.desc : "",
                                                 day.label ? day.label : "",
-                                                day.dataObj ? day.dataObj : null
+                                                day.dataObj ? day.dataObj : null,
+                                                day.customBackgroundColor
                                         );
 
                                     // find row
